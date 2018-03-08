@@ -20,10 +20,14 @@ class Book extends Component {
             </div>
           </div>
           <div className="book-title">{book.title}</div>
-          <div className="book-authors">{book.authors.map((author) => author + "\n")}</div>
+          {book.authors && (
+            <div className="book-authors">{book.authors.map((author) => author + "\n")}</div>
+         )}
+
+
         </div>
     )
   }
 }
 
-export default Book 
+export default Book
