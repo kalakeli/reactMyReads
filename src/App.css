@@ -131,6 +131,7 @@ body, .app {
 }
 .book-authors {
   color: #999;
+  white-space: pre-wrap;
 }
 
 .book-top {
