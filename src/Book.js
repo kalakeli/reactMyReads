@@ -31,7 +31,7 @@ class Book extends Component {
         <div className="book">
           <div className="book-top">
           {
-            // only show cover if available
+            // make sure book.imageLinks are set before showing a cover
             book.imageLinks && (
               <div className="book-cover" style={{
                 width: 128,
@@ -52,7 +52,7 @@ class Book extends Component {
           </div>
           <div className="book-title">{book.title}</div>
           {
-            // have to ascertain that book.authors are set before running map
+            // make sure that book.authors are set before running map
             book.authors && (
             <div className="book-authors">{book.authors.map((author) => author + "\n")}</div>
          )}
