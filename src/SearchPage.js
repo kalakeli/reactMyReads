@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-// import PropTypes from 'prop-types'
-//import escapeRegExp from 'escape-string-regexp'
 import Book from './Book'
 import * as BooksAPI from './BooksAPI'
 
@@ -13,9 +11,9 @@ class SearchPage extends Component {
     searchedBooks: []
   }
 
-  // when the user enters data, the query gets updated
-  // a maximum of 20 results is retrieved
-  // and handed over to searchedBooks
+  // when the user enters data, the query gets updated, the Book Backend gets
+  // the query and the resultset is handed over to searchedBooks
+  // if no query text exists, the searchedBooks array is set to an empty array
   updateQuery = (query) => {
     this.setState({ query: query })
     if (query.length>0) {
@@ -25,12 +23,12 @@ class SearchPage extends Component {
     } else {
       this.setState({ searchedBooks: [] })
     }
-  //  console.log("Updated search results: ", this.state.searchedBooks, " for query: ", this.state.query)
   }
 
   render() {
     const query = this.state.query;
     const searchedBooks = this.state.searchedBooks;
+
     return (
       <div>
        <div className="search-books">
@@ -49,10 +47,14 @@ class SearchPage extends Component {
           <div className="search-books-results">
              <ol className="books-grid">
        			 {
+               // items that are looped through need a unique id
                searchedBooks.map((book) => (
        			     <li key={book.id}>
        				     <Book
        				       book={book}
+                     // addBookToShelf needs to be passed to child Book component
+                     // so it is available there as part of the props
+                     addBookToShelf={this.props.addBookToShelf}
                    />
        			     </li>
                ))
