@@ -1,6 +1,9 @@
 # MyReads Project
 
 MyReads is a small REACT WebApp. It introduces a number of features often needed in REACT.
+The app offers two pages. One page shows three shelves on which your read, wannabe-read and currently read books are shown. The other a search page which allows you to scan for more interesting books. *Important to note* is that the backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
+
+Each book, be in the shelves page or the search page, respectively, has a drop down menu attached to it. Clicking on it you can choose how to deal with that specific book. You can move it to a different shelf, remove it completely or add it new.
 
 
 ## Installation
@@ -15,9 +18,6 @@ Running `npm start` starts a local server and opens a webpage with the project
 in your favourite browser.
 
 
-## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
-
 
 ## Create React App
 
@@ -28,10 +28,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 The magic lies within the `src`-Folder.
 
-### App.js
-### SearchPage.js
-### Bookshelf.js
-### Book.js
+### src/App.js
+### src/SearchPage.js
+### src/Bookshelf.js
+### src/Book.js
 
 ### App.css
 Not many changes here, but in one place. The class `book-authors` has a new rule how to deal with new lines. In the book component I inserted a new line between the author names for a nicer look.
