@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom';
 class ListBooks extends Component {
 
   render() {
-    const { books } = this.props
-    const { addBookToShelf } = this.props
-
+    // const { books } = this.props
+    const { books } = this.props;
 
   	// Three shelves will be filled with the books, each gets its books here
   	let currentBooks = books.filter((book) => book.shelf==='currentlyReading')
@@ -63,7 +62,7 @@ class ListBooks extends Component {
         				<Book
         				  book={book}
                   // addBookToShelf from the App is passed to the child component
-                  addBookToShelf={this.props.addBookToShelf}                  
+                  addBookToShelf={this.props.addBookToShelf}
                       />
         			  </li>
                    ))}
