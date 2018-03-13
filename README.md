@@ -44,7 +44,7 @@ The main component. It defines arrays for the books and the shelves, a method to
   ))
 }
 ```
-Also note that, because we are using a `map` to iterate through the array of shelves, we need a unique identifier (`shelf.id`).
+Also note that, because we are using `map` to iterate through the array of shelves, we need a unique identifier (`shelf.id`).
 
 Apart from this, in this overarching component, it is decided according to the URL which page will be called and rendered, the SearchPage (`/search`) or the BookShelf (`/`).
 
