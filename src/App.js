@@ -42,14 +42,17 @@ class BooksApp extends React.Component {
   // - the function is handed down to the child component ListBooks and from
   //   there down to the child component Book
   addBookToShelf = (bookToAdd, shelf) => {
-     this.setState(state => {
-       // filter the books array to reflect the changes
-       const updatedState = state.books.filter(book => book.id !== bookToAdd.id);
+     if (bookToAdd.shelf !== shelf) {
+           BooksAPI.update(bookToAdd, shelf).then(() => {
+             bookToAdd.shelf = shelf
 
-       return {
-         books: [...updatedState, { ...bookToAdd, shelf }]
-       };
-     });
+             // Filter out the book and append it to the end of the list
+             // so it appears at the end of whatever shelf it was added to.
+             this.setState(state => ({
+               books: state.books.filter(b => b.id !== bookToAdd.id).concat([ bookToAdd ])
+             }))
+           })
+     }
    };
 
   render() {
@@ -57,6 +60,7 @@ class BooksApp extends React.Component {
       <div className="app">
         <Route path='/search' render={() => (
     		    <SearchPage
+              books={this.state.books}
               addBookToShelf={this.addBookToShelf}
             />
         )}/>
