@@ -16,8 +16,6 @@ class Book extends Component {
 
   // the selected shelf is passed to update the state when the select menu changes
   handleChange(event) {
-    console.log("moving book from shelf " + this.props.book.shelf + " to shelf " + event.target.value)
-
     // update UI with book's new shelf
     this.props.addBookToShelf(this.props.book, event.target.value);
 
