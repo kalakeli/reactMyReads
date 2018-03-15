@@ -6,10 +6,6 @@ import * as BooksAPI from './BooksAPI'
 
 class SearchPage extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   state = {
     query: '',
     searchedBooks: []
