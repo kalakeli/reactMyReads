@@ -13,19 +13,7 @@ class BooksApp extends React.Component {
   state = {
     // it's all about the books which need to be able to be passed down to
     // child components as props
-    books: [],
-    // three shelves show the current selection of books; to simplify their
-    // usage, they are added to the state with the id found in a book
-    // plus the title shown to the user in the UI
-    shelves: [
-      {
-        id: "currentlyReading", name: "Currently Reading"
-      },{
-        id: "wantToRead", name: "Want to Read"
-      },{
-        id: "read", name: "Read"
-      }
-    ]
+    books: []
   }
 
   // use componenDidMount to read a list of all books on the shelf
@@ -56,6 +44,15 @@ class BooksApp extends React.Component {
    };
 
   render() {
+    const shelves = [
+          {
+            id: "currentlyReading", name: "Currently Reading"
+          },{
+            id: "wantToRead", name: "Want to Read"
+          },{
+            id: "read", name: "Read"
+          }
+        ]
     return (
       <div className="app">
         <Route path='/search' render={() => (
@@ -72,7 +69,7 @@ class BooksApp extends React.Component {
              <div className="list-books-content">
 
                {
-                 this.state.shelves.map((shelf) => (
+                 shelves.map((shelf) => (
                    <BookShelf
                      shelf={shelf}
                      key={shelf.id}
